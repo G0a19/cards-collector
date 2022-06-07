@@ -32,7 +32,7 @@ app.use("/verification", Psa);
 
 mongoose
   .connect(
-    `mongodb+srv://cardsCollector:${process.env.USER_PASS}@cardscollector.qqxwzj9.mongodb.net/?retryWrites=true&w=majority`,
+    `mongodb+srv://cardsCollector:${process.env.USER_PASS}@cardscollector.qqxwzj9.mongodb.net/cardsCollector?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
