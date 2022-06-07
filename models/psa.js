@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const psaSchema = new Schema({
   cardName: { type: String, required: true },
-  cardSet: { type: String, required: true, unique: true },
+  cardSet: { type: String, required: true },
+  year: { type: String, required: true },
   grade: { type: String, required: true },
   cardId: { type: String, required: true },
   images: [{ type: String }],
@@ -13,6 +14,7 @@ const psaSchema = new Schema({
     Higher: { type: String, required: true },
     inThisGrade: { type: String, required: true },
   },
+  date: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Psa", psaSchema);
