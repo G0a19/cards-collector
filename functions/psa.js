@@ -9,7 +9,7 @@ const errorHttp = require("./../models/errorHttp");
 const [getPsaImages] = require("./psa/getPsaImages");
 const [setNewCard] = require("./psa/setNewCard");
 
-const updateCard = async function (id, res = false) {
+const updateCard = async function (id, update = false) {
   try {
     const { body, statusCode } = await got.get(
       "https://www.psacard.com/cert/" + id
@@ -49,6 +49,9 @@ const updateCard = async function (id, res = false) {
     const form = new FormData();
     form.append("certID", scriptId);
     cardDetailes.images = await getPsaImages(form);
+    if (update) {
+      return await cardDetailes;
+    }
     await setNewCard(cardDetailes);
     return await cardDetailes;
   } catch (err) {

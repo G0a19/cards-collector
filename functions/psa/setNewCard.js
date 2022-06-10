@@ -1,6 +1,6 @@
 const Psa = require("./../../models/psa");
 
-const setNewCard = async function (card) {
+const setNewCard = async function (card, update = false) {
   const newCard = new Psa({
     cardName: card.cardName,
     cardSet: card.cardSet,
@@ -15,6 +15,8 @@ const setNewCard = async function (card) {
     },
     date: new Date().toISOString(),
   });
+
+  if (update) return newCard;
 
   try {
     await newCard.save();

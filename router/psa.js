@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Psa = require("../models/psa");
 const middleware = require("./../middleware/middleware");
 const errorHttp = require("./../models/errorHttp");
+const syncUpdate = require("./../functions/psa/syncUpdate");
 
 const [updateCard] = require("./../functions/psa");
 const [checkDataBaseCard] = require("./../functions/psa/checkDataBaseCard");
